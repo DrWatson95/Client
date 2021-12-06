@@ -7,6 +7,7 @@ MyClient::MyClient(const QString& strHost,
                    QWidget(pwgt)
                  , m_nNextBlockSize(0)
 {
+    setIpAddress();
     m_pTcpSocket = new QTcpSocket(this);
     m_pTcpSocket->connectToHost(strHost, nPort);
     connect(m_pTcpSocket, SIGNAL(connected()), SLOT(slotConnected()));
@@ -25,6 +26,12 @@ MyClient::MyClient(const QString& strHost,
     pvbxLayout->addWidget(m_ptxtinput);
     pvbxLayout->addWidget(pcmd);
     setLayout(pvbxLayout);
+}
+
+void MyClient::setIpAddress()
+{
+    QList<QHostAddress> list = QNetworkInterface::allAddresses();
+    myIpAddress = list[2].toString();
 }
 
 void MyClient::slotReadyRead()
@@ -71,7 +78,7 @@ void MyClient::slotSendToServer()
     QByteArray arrBlock;
     QDataStream out(&arrBlock, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_5_2);
-    out << quint16(0) << QTime::currentTime() << m_ptxtinput->text();
+    out << quint16(0) << myIpAddress << QTime::currentTime() << m_ptxtinput->text();
     out.device()->seek(0);
     out << quint16(arrBlock.size() -
                    sizeof(quint16));

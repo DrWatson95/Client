@@ -174,6 +174,7 @@ DIST          = /opt/Qt/6.2.1/gcc_64/mkspecs/features/spec_pre.prf \
 		/opt/Qt/6.2.1/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt/6.2.1/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt/6.2.1/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/opt/Qt/6.2.1/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt/6.2.1/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt/6.2.1/gcc_64/mkspecs/features/default_pre.prf \
@@ -324,6 +325,7 @@ Makefile: MyClient.pro /opt/Qt/6.2.1/gcc_64/mkspecs/linux-g++/qmake.conf /opt/Qt
 		/opt/Qt/6.2.1/gcc_64/mkspecs/features/qt_config.prf \
 		/opt/Qt/6.2.1/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/opt/Qt/6.2.1/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/opt/Qt/6.2.1/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/opt/Qt/6.2.1/gcc_64/mkspecs/features/toolchain.prf \
 		/opt/Qt/6.2.1/gcc_64/mkspecs/features/default_pre.prf \
@@ -467,6 +469,7 @@ Makefile: MyClient.pro /opt/Qt/6.2.1/gcc_64/mkspecs/linux-g++/qmake.conf /opt/Qt
 /opt/Qt/6.2.1/gcc_64/mkspecs/features/qt_config.prf:
 /opt/Qt/6.2.1/gcc_64/mkspecs/linux-g++/qmake.conf:
 /opt/Qt/6.2.1/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /opt/Qt/6.2.1/gcc_64/mkspecs/features/exclusive_builds.prf:
 /opt/Qt/6.2.1/gcc_64/mkspecs/features/toolchain.prf:
 /opt/Qt/6.2.1/gcc_64/mkspecs/features/default_pre.prf:
@@ -545,10 +548,10 @@ compiler_moc_header_make_all: moc_myclient.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_myclient.cpp
 moc_myclient.cpp: myclient.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QtWidgets \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QtWidgetsDepends \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QtCore \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QtCoreDepends \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtguiglobal.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qglobal.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qconfig.h \
@@ -569,12 +572,18 @@ moc_myclient.cpp: myclient.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qglobalstatic.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qnumeric.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qversiontagging.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstractanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwidget.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindowdefs.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobjectdefs.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qnamespace.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtmetamacros.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobject.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstring.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qchar.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstringview.h \
@@ -617,170 +626,45 @@ moc_myclient.cpp: myclient.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qproperty.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qshareddata.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpropertyprivate.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstracteventdispatcher.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qhash.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qvariant.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmap.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qshareddata_impl.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdebug.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtextstream.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstringconverter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qset.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcontiguouscache.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedpointer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstractnativeeventfilter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstractproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qanimationgroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qapplicationpermission.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qassociativeiterable.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qbasictimer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qbitarray.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qbuffer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qiodevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qbytearraymatcher.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcache.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcalendar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qlocale.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborarray.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborvalue.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdatetime.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborcommon.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qurl.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/quuid.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcbormap.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborstream.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborstreamreader.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfloat16.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborstreamwriter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcollator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcommandlineoption.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcommandlineparser.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcoreapplication.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfuture.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfutureinterface.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmutex.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qresultstore.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfuture_impl.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qthreadpool.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qthread.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdeadlinetimer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qelapsedtimer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qrunnable.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qexception.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpointer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qnativeinterface.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qloggingcategory.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcoreapplication_platform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qconcatenatetablesproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcryptographichash.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdir.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfile.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfiledevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfileinfo.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdiriterator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qeasingcurve.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qendian.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfactoryinterface.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfileselector.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QObject \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QStringList \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfilesystemwatcher.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfuturesynchronizer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfuturewatcher.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qidentityproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qitemselectionmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjnienvironment.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QScopedPointer \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjniobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjsonarray.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjsonvalue.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjsonobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qlibrary.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qlibraryinfo.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qversionnumber.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qline.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpoint.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qlockfile.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmargins.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmessageauthenticationcode.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmetaobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmimedata.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmimedatabase.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmimetype.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobjectcleanuphandler.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qoperatingsystemversion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qparallelanimationgroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpauseanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpluginloader.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qprocess.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpromise.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpropertyanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qvariantanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qqueue.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qrandom.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qreadwritelock.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpaintdevice.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qrect.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsize.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qresource.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsavefile.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qscopedvaluerollback.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsemaphore.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsequentialanimationgroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsequentialiterable.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsettings.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedmemory.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsignalmapper.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsimd.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsocketnotifier.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsortfilterproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstack.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstandardpaths.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstorageinfo.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstringlistmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsystemsemaphore.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtemporarydir.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtemporaryfile.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtextboundaryfinder.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qthreadstorage.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtimeline.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtimer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtimezone.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtranslator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtransposeproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qurlquery.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qvector.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qwaitcondition.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QDeadlineTimer \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qwineventnotifier.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qxmlstream.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtcoreversion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QtGui \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QtGuiDepends \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtguiglobal.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtgui-config.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qabstractfileiconprovider.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpixmap.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpaintdevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindowdefs.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpalette.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcolor.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrgb.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbrush.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qimage.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpixelformat.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtransform.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpolygon.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qregion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qabstracttextdocumentlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextlayout.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qline.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpixmap.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfont.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontmetrics.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontinfo.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcursor.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbitmap.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qkeysequence.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qevent.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qurl.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qvariant.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmap.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qshareddata_impl.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdebug.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtextstream.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstringconverter.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qset.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcontiguouscache.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qeventpoint.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvector2d.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvectornd.h \
@@ -788,241 +672,18 @@ moc_myclient.cpp: myclient.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qinputdevice.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qscreen.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/QList \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QObject \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/QRect \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/QSize \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/QSizeF \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/QTransform \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qkeysequence.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qglyphrun.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrawfont.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfont.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontdatabase.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qnativeinterface.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qloggingcategory.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextdocument.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextoption.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextcursor.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbrush.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextoption.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextdocument.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpalette.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaccessible.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaccessiblebridge.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaccessibleobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaccessibleplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaction.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qactiongroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbackingstore.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QEvent \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QMargins \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qsurface.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qsurfaceformat.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcursor.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbitmap.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qclipboard.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcolorspace.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcolortransform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qdesktopservices.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qdrag.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfilesystemmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontinfo.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontmetrics.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qgenericmatrix.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qgenericplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qgenericpluginfactory.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qguiapplication.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qguiapplication_platform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qiconengine.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qiconengineplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qimageiohandler.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qimagereader.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qimagewriter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qmatrix4x4.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvector3d.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvector4d.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qquaternion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qmovie.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qoffscreensurface.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qoffscreensurface_platform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopengl.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qt_windows.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopengles2ext.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglext.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglcontext.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QSurfaceFormat \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglextrafunctions.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglfunctions.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpagedpaintdevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpagelayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpagesize.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpageranges.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpaintdevicewindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QWindow \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QPaintDevice \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpaintengine.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpainter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpainterpath.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpdfwriter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpicture.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpixmapcache.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrasterwindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QPaintDeviceWindow \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrgbafloat.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qsessionmanager.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qshortcut.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qstandarditemmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qstatictext.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qstylehints.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qsyntaxhighlighter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextdocumentfragment.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextdocumentwriter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextlist.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtexttable.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qundogroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qundostack.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtguiversion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsizepolicy.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractitemview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qaccessiblewidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qaction.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QAction \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qactiongroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QActionGroup \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qboxlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgridlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qbuttongroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcalendarwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcheckbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcolordialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcolormap.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcolumnview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcommandlinkbutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcommonstyle.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcompleter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdatawidgetmapper.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdatetimeedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdial.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdockwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdrawutil.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qerrormessage.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfiledialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfileiconprovider.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfilesystemmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QFileSystemModel \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfocusframe.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfontcombobox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfontdialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qformlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QLayout \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgesture.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgesturerecognizer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsanchorlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsitem.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicslayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicseffect.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsgridlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsitemanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicslinearlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsproxywidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicswidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsscene.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicssceneevent.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicstransform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QVector3D \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QMatrix4x4 \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qscrollarea.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgroupbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qheaderview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qinputdialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qitemdelegate.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qitemeditorfactory.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qkeysequenceedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlcdnumber.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlistview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlistwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmainwindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmdiarea.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmdisubwindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmenu.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmenubar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmessagebox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qplaintextedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qprogressbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qprogressdialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qproxystyle.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QCommonStyle \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qradiobutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qscrollbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qscroller.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QPointF \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QScrollerProperties \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qscrollerproperties.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QMetaType \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QVariant \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qshortcut.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QShortcut \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsizegrip.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qspinbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsplashscreen.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsplitter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstackedlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstackedwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstatusbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstyleditemdelegate.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstylefactory.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstylepainter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstyleplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsystemtrayicon.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtableview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtablewidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtextbrowser.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtoolbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtoolbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtoolbutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtooltip.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtreeview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtreewidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtreewidgetitemiterator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qundogroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QUndoGroup \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qundostack.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QUndoStack \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qundoview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwhatsthis.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwidgetaction.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwizard.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgetsversion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QTextEdit \
 		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/QTcpSocket \
 		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtcpsocket.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtnetworkglobal.h \
@@ -1031,6 +692,21 @@ moc_myclient.cpp: myclient.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qhostaddress.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/QTcpServer \
 		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtcpserver.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QMessageBox \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmessagebox.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdialog.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QTime \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdatetime.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcalendar.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qlocale.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpicture.h \
 		moc_predefs.h \
 		/opt/Qt/6.2.1/gcc_64/libexec/moc
 	/opt/Qt/6.2.1/gcc_64/libexec/moc $(DEFINES) --include /home/konstantin/QtProjects/MyClient/moc_predefs.h -I/opt/Qt/6.2.1/gcc_64/mkspecs/linux-g++ -I/home/konstantin/QtProjects/MyClient -I/opt/Qt/6.2.1/gcc_64/include -I/opt/Qt/6.2.1/gcc_64/include/QtWidgets -I/opt/Qt/6.2.1/gcc_64/include/QtGui -I/opt/Qt/6.2.1/gcc_64/include/QtNetwork -I/opt/Qt/6.2.1/gcc_64/include/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include myclient.h -o moc_myclient.cpp
@@ -1057,10 +733,10 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 ####### Compile
 
 main.o: main.cpp myclient.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QtWidgets \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QtWidgetsDepends \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QtCore \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QtCoreDepends \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtguiglobal.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qglobal.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qconfig.h \
@@ -1081,12 +757,18 @@ main.o: main.cpp myclient.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qglobalstatic.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qnumeric.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qversiontagging.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstractanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwidget.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindowdefs.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobjectdefs.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qnamespace.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtmetamacros.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobject.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstring.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qchar.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstringview.h \
@@ -1129,49 +811,91 @@ main.o: main.cpp myclient.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qproperty.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qshareddata.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpropertyprivate.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstracteventdispatcher.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmargins.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpaintdevice.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qrect.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsize.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpalette.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbrush.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qimage.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpixelformat.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtransform.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpolygon.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qregion.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qline.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpixmap.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfont.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontmetrics.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontinfo.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcursor.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbitmap.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qkeysequence.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qevent.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qurl.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qvariant.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmap.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qshareddata_impl.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qhash.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdebug.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtextstream.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstringconverter.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qset.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcontiguouscache.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedpointer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstractnativeeventfilter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstractproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qanimationgroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qapplicationpermission.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qassociativeiterable.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qbasictimer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qbitarray.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qbuffer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qiodevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qbytearraymatcher.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcache.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qeventpoint.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvector2d.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvectornd.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpointingdevice.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qinputdevice.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QList \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QObject \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QRect \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QSize \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/QTransform \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qnativeinterface.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qloggingcategory.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextdocument.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/QTcpSocket \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtcpsocket.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qabstractsocket.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/QTcpServer \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtcpserver.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QMessageBox \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmessagebox.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdialog.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QTime \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdatetime.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcalendar.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qlocale.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborarray.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborvalue.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdatetime.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborcommon.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qurl.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/quuid.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcbormap.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborstream.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborstreamreader.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfloat16.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborstreamwriter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcollator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcommandlineoption.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcommandlineparser.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpicture.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qapplication.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qeventloop.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfuture.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfutureinterface.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmutex.h \
@@ -1183,374 +907,18 @@ main.o: main.cpp myclient.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qelapsedtimer.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qrunnable.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qexception.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpointer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qnativeinterface.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qloggingcategory.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qapplicationpermission.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcoreapplication_platform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qconcatenatetablesproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcryptographichash.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdir.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfile.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfiledevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfileinfo.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdiriterator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qeasingcurve.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qendian.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfactoryinterface.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfileselector.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QObject \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QStringList \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfilesystemwatcher.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfuturesynchronizer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfuturewatcher.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qidentityproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qitemselectionmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjnienvironment.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QScopedPointer \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjniobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjsonarray.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjsonvalue.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjsonobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qlibrary.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qlibraryinfo.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qversionnumber.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qline.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpoint.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qlockfile.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmargins.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmessageauthenticationcode.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmetaobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmimedata.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmimedatabase.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmimetype.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobjectcleanuphandler.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qoperatingsystemversion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qparallelanimationgroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpauseanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpluginloader.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qprocess.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpromise.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpropertyanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qvariantanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qqueue.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qrandom.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qreadwritelock.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qrect.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsize.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qresource.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsavefile.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qscopedvaluerollback.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsemaphore.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsequentialanimationgroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsequentialiterable.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsettings.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedmemory.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsignalmapper.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsimd.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsocketnotifier.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsortfilterproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstack.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstandardpaths.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstorageinfo.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstringlistmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsystemsemaphore.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtemporarydir.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtemporaryfile.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtextboundaryfinder.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qthreadstorage.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtimeline.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtimer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtimezone.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtranslator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtransposeproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qurlquery.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qvector.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qwaitcondition.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QDeadlineTimer \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qwineventnotifier.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qxmlstream.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtcoreversion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QtGui \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QtGuiDepends \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtguiglobal.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtgui-config.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qabstractfileiconprovider.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpixmap.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpaintdevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindowdefs.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcolor.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrgb.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrgba64.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qimage.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpixelformat.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtransform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpolygon.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qregion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qabstracttextdocumentlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qevent.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qeventpoint.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvector2d.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvectornd.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpointingdevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qinputdevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qscreen.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QList \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QRect \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QSize \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QSizeF \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QTransform \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qkeysequence.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qglyphrun.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrawfont.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfont.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontdatabase.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbrush.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextoption.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextdocument.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpalette.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaccessible.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaccessiblebridge.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaccessibleobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaccessibleplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaction.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qactiongroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbackingstore.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QEvent \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QMargins \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qsurface.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qsurfaceformat.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcursor.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbitmap.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qclipboard.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcolorspace.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcolortransform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qdesktopservices.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qdrag.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfilesystemmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontinfo.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontmetrics.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qgenericmatrix.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qgenericplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qgenericpluginfactory.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qguiapplication.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qinputmethod.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qguiapplication_platform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qiconengine.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qiconengineplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qimageiohandler.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qimagereader.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qimagewriter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qmatrix4x4.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvector3d.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvector4d.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qquaternion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qmovie.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qoffscreensurface.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qoffscreensurface_platform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopengl.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qt_windows.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopengles2ext.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglext.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglcontext.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QSurfaceFormat \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglextrafunctions.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglfunctions.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpagedpaintdevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpagelayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpagesize.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpageranges.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpaintdevicewindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QWindow \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QPaintDevice \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpaintengine.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpainter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpainterpath.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpdfwriter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpicture.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpixmapcache.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrasterwindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QPaintDeviceWindow \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrgbafloat.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qsessionmanager.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qshortcut.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qstandarditemmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qstatictext.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qstylehints.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qsyntaxhighlighter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextdocumentfragment.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextdocumentwriter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextlist.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtexttable.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qundogroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qundostack.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtguiversion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsizepolicy.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractitemview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qaccessiblewidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qaction.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QAction \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qactiongroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QActionGroup \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qboxlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgridlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qbuttongroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcalendarwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcheckbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcolordialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcolormap.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcolumnview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcommandlinkbutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcommonstyle.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcompleter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdatawidgetmapper.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdatetimeedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdial.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdockwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdrawutil.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qerrormessage.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfiledialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfileiconprovider.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfilesystemmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QFileSystemModel \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfocusframe.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfontcombobox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfontdialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qformlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QLayout \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgesture.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgesturerecognizer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsanchorlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsitem.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicslayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicseffect.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsgridlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsitemanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicslinearlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsproxywidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicswidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsscene.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicssceneevent.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicstransform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QVector3D \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QMatrix4x4 \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qscrollarea.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgroupbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qheaderview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qinputdialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qitemdelegate.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qitemeditorfactory.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qkeysequenceedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlcdnumber.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlistview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlistwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmainwindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmdiarea.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmdisubwindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmenu.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmenubar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmessagebox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qplaintextedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qprogressbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qprogressdialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qproxystyle.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QCommonStyle \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qradiobutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qscrollbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qscroller.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QPointF \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QScrollerProperties \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qscrollerproperties.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QMetaType \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QVariant \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qshortcut.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QShortcut \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsizegrip.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qspinbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsplashscreen.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsplitter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstackedlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstackedwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstatusbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstyleditemdelegate.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstylefactory.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstylepainter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstyleplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsystemtrayicon.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtableview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtablewidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtextbrowser.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtoolbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtoolbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtoolbutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtooltip.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtreeview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtreewidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtreewidgetitemiterator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qundogroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QUndoGroup \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qundostack.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QUndoStack \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qundoview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwhatsthis.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwidgetaction.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwizard.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgetsversion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/QTcpSocket \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtcpsocket.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtnetworkglobal.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtnetwork-config.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qabstractsocket.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qhostaddress.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/QTcpServer \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtcpserver.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QApplication
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qguiapplication_platform.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 myclient.o: myclient.cpp myclient.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QtWidgets \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QtWidgetsDepends \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QtCore \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QtCoreDepends \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QTextEdit \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtextedit.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtguiglobal.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qglobal.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qconfig.h \
@@ -1571,12 +939,18 @@ myclient.o: myclient.cpp myclient.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qglobalstatic.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qnumeric.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qversiontagging.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstractanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobject.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtgui-config.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qframe.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwidget.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindowdefs.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobjectdefs.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qnamespace.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtmetamacros.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobject.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstring.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qchar.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstringview.h \
@@ -1619,49 +993,93 @@ myclient.o: myclient.cpp myclient.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qproperty.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qshareddata.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpropertyprivate.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstracteventdispatcher.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qeventloop.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qhash.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmargins.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpaintdevice.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qrect.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsize.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpoint.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpalette.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcolor.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrgb.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrgba64.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbrush.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qimage.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpixelformat.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtransform.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpolygon.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qregion.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qline.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpixmap.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedpointer.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfont.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontmetrics.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontinfo.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcursor.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbitmap.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qkeysequence.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qevent.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qiodevice.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpointer.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qurl.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qvariant.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmap.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qshareddata_impl.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qhash.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdebug.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtextstream.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstringconverter.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qset.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcontiguouscache.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedpointer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstractnativeeventfilter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qabstractproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qanimationgroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qapplicationpermission.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qassociativeiterable.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qbasictimer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qbitarray.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qbuffer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qiodevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qbytearraymatcher.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcache.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qeventpoint.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvector2d.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvectornd.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpointingdevice.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qinputdevice.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qscreen.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QList \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QObject \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QRect \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QSize \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QSizeF \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/QTransform \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qnativeinterface.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qloggingcategory.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextdocument.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextoption.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextcursor.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextformat.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpen.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/QTcpSocket \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtcpsocket.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qabstractsocket.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qhostaddress.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/QTcpServer \
+		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtcpserver.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QMessageBox \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmessagebox.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdialog.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QTime \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdatetime.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcalendar.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qlocale.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborarray.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborvalue.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdatetime.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborcommon.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qregularexpression.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qurl.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/quuid.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcbormap.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborstream.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborstreamreader.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfloat16.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcborstreamwriter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcollator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcommandlineoption.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcommandlineparser.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QVBoxLayout \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qboxlayout.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlayout.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgridlayout.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QLabel \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlabel.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpicture.h \
+		ui_myclient.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/QVariant \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QApplication \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qapplication.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcoreapplication.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qeventloop.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfuture.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfutureinterface.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmutex.h \
@@ -1673,367 +1091,24 @@ myclient.o: myclient.cpp myclient.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qelapsedtimer.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qrunnable.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qexception.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpointer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qnativeinterface.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qloggingcategory.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtCore/qapplicationpermission.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcoreapplication_platform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qconcatenatetablesproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qcryptographichash.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdir.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfile.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfiledevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfileinfo.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qdiriterator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qeasingcurve.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qendian.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfactoryinterface.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfileselector.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QObject \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QStringList \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfilesystemwatcher.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfuturesynchronizer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qfuturewatcher.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qidentityproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qitemselectionmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjnienvironment.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QScopedPointer \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjniobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjsonarray.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjsonvalue.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjsondocument.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qjsonobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qlibrary.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qlibraryinfo.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qversionnumber.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qline.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpoint.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qlockfile.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmargins.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmessageauthenticationcode.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmetaobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmimedata.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmimedatabase.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qmimetype.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qobjectcleanuphandler.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qoperatingsystemversion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qparallelanimationgroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpauseanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpluginloader.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qprocess.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpromise.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qpropertyanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qvariantanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qqueue.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qrandom.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qreadwritelock.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qrect.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsize.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qresource.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsavefile.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qscopedvaluerollback.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsemaphore.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsequentialanimationgroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsequentialiterable.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsettings.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsharedmemory.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsignalmapper.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsimd.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsocketnotifier.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsortfilterproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstack.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstandardpaths.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstorageinfo.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qstringlistmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qsystemsemaphore.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtemporarydir.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtemporaryfile.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtextboundaryfinder.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qthreadstorage.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtimeline.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtimer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtimezone.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtranslator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtransposeproxymodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qurlquery.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qvector.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qwaitcondition.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QDeadlineTimer \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qwineventnotifier.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qxmlstream.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qtcoreversion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QtGui \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QtGuiDepends \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtguiglobal.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtgui-config.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qabstractfileiconprovider.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qicon.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpixmap.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpaintdevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindowdefs.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcolor.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrgb.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrgba64.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qimage.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpixelformat.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtransform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpolygon.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qregion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qabstracttextdocumentlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qevent.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qeventpoint.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvector2d.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvectornd.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpointingdevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qinputdevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qscreen.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QList \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QRect \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QSize \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QSizeF \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QTransform \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qkeysequence.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qglyphrun.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrawfont.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfont.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontdatabase.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextcursor.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextformat.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbrush.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpen.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextoption.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextdocument.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpalette.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaccessible.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaccessiblebridge.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaccessibleobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaccessibleplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaction.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qactiongroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbackingstore.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qwindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QEvent \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QMargins \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qsurface.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qsurfaceformat.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcursor.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qbitmap.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qclipboard.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcolorspace.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qcolortransform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qdesktopservices.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qdrag.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfilesystemmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontinfo.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qfontmetrics.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qgenericmatrix.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qgenericplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qgenericpluginfactory.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qguiapplication.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qinputmethod.h \
 		/opt/Qt/6.2.1/gcc_64/include/QtGui/qguiapplication_platform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qiconengine.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qiconengineplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qimageiohandler.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qimagereader.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qimagewriter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qmatrix4x4.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvector3d.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvector4d.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qquaternion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qmovie.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qoffscreensurface.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qoffscreensurface_platform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopengl.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/qt_windows.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopengles2ext.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglext.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglcontext.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QSurfaceFormat \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglcontext_platform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglextrafunctions.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qopenglfunctions.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpagedpaintdevice.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpagelayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpagesize.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpageranges.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpaintdevicewindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QWindow \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QPaintDevice \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpaintengine.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpainter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpainterpath.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpdfwriter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpicture.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qpixmapcache.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrasterwindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QPaintDeviceWindow \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qrgbafloat.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qsessionmanager.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qshortcut.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qstandarditemmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qstatictext.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qstylehints.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qsyntaxhighlighter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextobject.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextdocumentfragment.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextdocumentwriter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtextlist.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtexttable.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qundogroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qundostack.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qvalidator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/qtguiversion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsizepolicy.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstyleoption.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qslider.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractslider.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstyle.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtabbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtabwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qrubberband.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qframe.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractitemview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qaccessiblewidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qaction.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QAction \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qactiongroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QActionGroup \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qapplication.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qboxlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgridlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qbuttongroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcalendarwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcheckbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcolordialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcolormap.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcolumnview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcombobox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcommandlinkbutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qpushbutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcommonstyle.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qcompleter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdatawidgetmapper.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdatetimeedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdial.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdockwidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qdrawutil.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qerrormessage.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfiledialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfileiconprovider.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfilesystemmodel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QFileSystemModel \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfocusframe.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfontcombobox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qfontdialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qformlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QLayout \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgesture.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgesturerecognizer.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsanchorlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsitem.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicslayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicslayoutitem.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicseffect.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsgridlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsitemanimation.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicslinearlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsproxywidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicswidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsscene.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicssceneevent.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicstransform.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QVector3D \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QMatrix4x4 \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgraphicsview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qscrollarea.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qgroupbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qheaderview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qinputdialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlineedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qitemdelegate.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qitemeditorfactory.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qkeysequenceedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlabel.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlcdnumber.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlistview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qlistwidget.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QMainWindow \
 		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmainwindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmdiarea.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmdisubwindow.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmenu.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtabwidget.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qicon.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QMenuBar \
 		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmenubar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmessagebox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qplaintextedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtextedit.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qprogressbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qprogressdialog.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qproxystyle.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QCommonStyle \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qradiobutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qscrollbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qscroller.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QPointF \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QScrollerProperties \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qscrollerproperties.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QMetaType \
-		/opt/Qt/6.2.1/gcc_64/include/QtCore/QVariant \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qshortcut.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QShortcut \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsizegrip.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qspinbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsplashscreen.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsplitter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstackedlayout.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstackedwidget.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qmenu.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtGui/qaction.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QStatusBar \
 		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstatusbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstyleditemdelegate.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstylefactory.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstylepainter.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qstyleplugin.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qsystemtrayicon.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtableview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtablewidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtextbrowser.h \
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QToolBar \
 		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtoolbar.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtoolbox.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtoolbutton.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtooltip.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtreeview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtreewidget.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtreewidgetitemiterator.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qundogroup.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QUndoGroup \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qundostack.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtGui/QUndoStack \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qundoview.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwhatsthis.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwidgetaction.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qwizard.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/qtwidgetsversion.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QTextEdit \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/QTcpSocket \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtcpsocket.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtnetworkglobal.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtnetwork-config.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qabstractsocket.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qhostaddress.h \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/QTcpServer \
-		/opt/Qt/6.2.1/gcc_64/include/QtNetwork/qtcpserver.h \
-		ui_myclient.h
+		/opt/Qt/6.2.1/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o myclient.o myclient.cpp
 
 moc_myclient.o: moc_myclient.cpp 
