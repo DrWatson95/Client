@@ -22,7 +22,7 @@ MyClient::MyClient(const QString& strHost,
     m_pTcpSocket->connectToHost(strHost, nPort);
     connect(m_pTcpSocket, SIGNAL(connected()), SLOT(slotConnected()));
     connect(m_pTcpSocket, SIGNAL(readyRead() ), SLOT(slotReadyRead()));
-    connect(m_pTcpSocket, SIGNAL(error(QAЬstractSocket::SocketError)),this, SLOT (slotError (QAЬstractSocket: :SocketError))) ;
+    connect(m_pTcpSocket, SIGNAL(error(QAbstractSocket::SocketError)),this, SLOT (slotError (QAbstractSocket: :SocketError))) ;
     m_ptxtinfo = new QTextEdit;
     m_ptxtinput = new QLineEdit;
     m_ptxtinfo->setReadOnly(true);
@@ -75,9 +75,11 @@ void MyClient::slotReadyRead()
         break;
     }
     case static_cast<quint8>(MessageID::UsefulExchange):{
-
-        qDebug() << "2";
+        QString text;
+        in >> text;
+        m_ptxtinfo->append(text);
         break;
+        qDebug() << "2";
     }
     case static_cast<quint8>(MessageID::CheckConnected):{
         quint8 b;
