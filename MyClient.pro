@@ -25,14 +25,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        auth_window.cpp \
         main.cpp \
-        myclient.cpp
+        myclient.cpp \
+        reg_window.cpp
 
 HEADERS += \
-        myclient.h
+        auth_window.h \
+        globalcommonheader.h \
+        myclient.h \
+        reg_window.h
 
 FORMS += \
-        myclient.ui
+        auth_window.ui \
+        myclient.ui \
+        reg_window.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

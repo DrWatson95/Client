@@ -23,8 +23,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MyClient_t {
-    const uint offsetsAndSize[16];
-    char stringdata0[98];
+    const uint offsetsAndSize[22];
+    char stringdata0[143];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MyClient_t, stringdata0) + ofs), len 
@@ -36,13 +36,17 @@ QT_MOC_LITERAL(23, 0), // ""
 QT_MOC_LITERAL(24, 9), // "slotError"
 QT_MOC_LITERAL(34, 28), // "QAbstractSocket::SocketError"
 QT_MOC_LITERAL(63, 3), // "err"
-QT_MOC_LITERAL(67, 16), // "slotSendToServer"
-QT_MOC_LITERAL(84, 13) // "slotConnected"
+QT_MOC_LITERAL(67, 13), // "slotConnected"
+QT_MOC_LITERAL(81, 12), // "sendAuthInfo"
+QT_MOC_LITERAL(94, 11), // "sendRegInfo"
+QT_MOC_LITERAL(106, 18), // "registerWindowShow"
+QT_MOC_LITERAL(125, 17) // "sendUsefulMessage"
 
     },
     "MyClient\0slotReadyRead\0\0slotError\0"
     "QAbstractSocket::SocketError\0err\0"
-    "slotSendToServer\0slotConnected"
+    "slotConnected\0sendAuthInfo\0sendRegInfo\0"
+    "registerWindowShow\0sendUsefulMessage"
 };
 #undef QT_MOC_LITERAL
 
@@ -52,7 +56,7 @@ static const uint qt_meta_data_MyClient[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -60,14 +64,20 @@ static const uint qt_meta_data_MyClient[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   38,    2, 0x08,    1 /* Private */,
-       3,    1,   39,    2, 0x08,    2 /* Private */,
-       6,    0,   42,    2, 0x08,    4 /* Private */,
-       7,    0,   43,    2, 0x08,    5 /* Private */,
+       1,    0,   56,    2, 0x08,    1 /* Private */,
+       3,    1,   57,    2, 0x08,    2 /* Private */,
+       6,    0,   60,    2, 0x08,    4 /* Private */,
+       7,    0,   61,    2, 0x08,    5 /* Private */,
+       8,    0,   62,    2, 0x08,    6 /* Private */,
+       9,    0,   63,    2, 0x08,    7 /* Private */,
+      10,    0,   64,    2, 0x08,    8 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 4,    5,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -82,8 +92,11 @@ void MyClient::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         switch (_id) {
         case 0: _t->slotReadyRead(); break;
         case 1: _t->slotError((*reinterpret_cast< QAbstractSocket::SocketError(*)>(_a[1]))); break;
-        case 2: _t->slotSendToServer(); break;
-        case 3: _t->slotConnected(); break;
+        case 2: _t->slotConnected(); break;
+        case 3: _t->sendAuthInfo(); break;
+        case 4: _t->sendRegInfo(); break;
+        case 5: _t->registerWindowShow(); break;
+        case 6: _t->sendUsefulMessage(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -108,7 +121,7 @@ const QMetaObject MyClient::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MyClient_t
 , QtPrivate::TypeAndForceComplete<MyClient, std::true_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QAbstractSocket::SocketError, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QAbstractSocket::SocketError, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -135,13 +148,13 @@ int MyClient::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 7;
     }
     return _id;
 }
