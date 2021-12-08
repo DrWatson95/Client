@@ -79,10 +79,11 @@ void MyClient::slotReadyRead()
     }
     case static_cast<quint8>(MessageID::UsefulExchange):{
         QString text;
-        in >> text;
-        m_ptxtinfo->append(text);
-        break;
+        QString text2;
+        in >> text >> text2;
+        m_ptxtinfo->append(text + ": " + text2);
         qDebug() << "2";
+        break;
     }
     case static_cast<quint8>(MessageID::CheckConnected):{
         quint8 b;
@@ -157,7 +158,7 @@ void MyClient::sendRegInfo()
     if(ui_Reg.checkPass()){
         m_username = ui_Reg.getName();
         m_userpass = ui_Reg.getPass();
-        QByteArray arrBlock;2
+        QByteArray arrBlock;
         QDataStream out(&arrBlock, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_5_2);
         out << m_username << m_userpass;
@@ -174,6 +175,7 @@ void MyClient::sendUsefulMessage()
     QDataStream out(&arrBlock, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_5_2);
     out << m_ptxtinput->text();
+    m_ptxtinput->clear();
     SendToServer(&arrBlock,MessageID::UsefulExchange);
 }
 
