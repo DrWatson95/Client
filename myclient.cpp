@@ -68,9 +68,12 @@ void MyClient::slotReadyRead()
         //in.device()->seek(1);
         quint8 b;
         in >> b;
-        ui_Reg.hide();
-        ui_Auth.show();
-        //this->show();
+        if(b){
+            ui_Reg.hide();
+            ui_Auth.show();
+        }else{
+            ui_Reg.setIsSuccessReg();
+        }
         qDebug() << "1";
         break;
     }
@@ -154,7 +157,7 @@ void MyClient::sendRegInfo()
     if(ui_Reg.checkPass()){
         m_username = ui_Reg.getName();
         m_userpass = ui_Reg.getPass();
-        QByteArray arrBlock;
+        QByteArray arrBlock;2
         QDataStream out(&arrBlock, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_5_2);
         out << m_username << m_userpass;

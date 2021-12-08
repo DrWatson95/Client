@@ -16,6 +16,7 @@ public:
     ~reg_window();
     QString getName();
     QString getPass();
+    void setIsSuccessReg();
     bool checkPass();
 
 signals:
