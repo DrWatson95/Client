@@ -79,9 +79,8 @@ void MyClient::slotReadyRead()
     }
     case static_cast<quint8>(MessageID::UsefulExchange):{
         QString text;
-        QString text2;
-        in >> text >> text2;
-        m_ptxtinfo->append(text + ": " + text2);
+        in >> text;
+        m_ptxtinfo->append(text);
         qDebug() << "2";
         break;
     }
@@ -173,10 +172,12 @@ void MyClient::sendUsefulMessage()
 {
     QByteArray arrBlock;
     QDataStream out(&arrBlock, QIODevice::WriteOnly);
-    out.setVersion(QDataStream::Qt_5_2);
-    out << m_ptxtinput->text();
-    m_ptxtinput->clear();
-    SendToServer(&arrBlock,MessageID::UsefulExchange);
+    QString allMessage = m_username + QString(": ") + m_ptxtinput->text();
+    if(m_ptxtinput->text() != ""){
+       out << allMessage;
+       m_ptxtinput->clear();
+       SendToServer(&arrBlock,MessageID::UsefulExchange);
+    }
 }
 
 void MyClient::registerWindowShow()
