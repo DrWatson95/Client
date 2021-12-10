@@ -34,6 +34,7 @@ public:
     QLabel *label_Pass;
     QLineEdit *confirmLineEdit;
     QLabel *isSuccessReg;
+    QLabel *labelConnected;
 
     void setupUi(QWidget *reg_window)
     {
@@ -100,6 +101,11 @@ public:
 
         gridLayout->addWidget(isSuccessReg, 5, 0, 1, 1);
 
+        labelConnected = new QLabel(reg_window);
+        labelConnected->setObjectName(QString::fromUtf8("labelConnected"));
+
+        gridLayout->addWidget(labelConnected, 1, 0, 1, 1);
+
 
         horizontalLayout->addLayout(gridLayout);
 
@@ -118,6 +124,7 @@ public:
         labelWelcome->setText(QCoreApplication::translate("reg_window", "authentificate yourself", nullptr));
         label_Pass->setText(QCoreApplication::translate("reg_window", "password", nullptr));
         isSuccessReg->setText(QString());
+        labelConnected->setText(QString());
     } // retranslateUi
 
 };

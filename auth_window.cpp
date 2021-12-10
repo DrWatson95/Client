@@ -6,6 +6,7 @@ auth_window::auth_window(QWidget *parent) :                                 //р
     ui(new Ui::auth_window)
 {
     ui->setupUi(this);                                                      //вызов функции размещения GUI
+    ui->lineEdit_2->setEchoMode(QLineEdit::EchoMode::Password);
 }
 
 auth_window::~auth_window()                                                 //реализация деструктора
@@ -42,9 +43,48 @@ QString auth_window::getPass()
 {
     return auth_window::m_userpass;
 }
-void auth_window::setText(QString str)
+void auth_window::setTextOnlabelError(QString str)
 {
     ui->labelError->setText(str);
 }
 
+void auth_window::setTextOnLabelConnected(QString text)
+{
+    ui->labelConnected->setText(text);
+}
 
+void auth_window::setEnableRegisterButton(bool b)
+{
+    ui->registerPushButton_2->setEnabled(b);
+}
+
+void auth_window::setEnableLoginButton(bool b)
+{
+    ui->loginPushButton->setEnabled(b);
+}
+
+void auth_window::closeEvent(QCloseEvent* event)
+{
+    emit sgnClose(true);
+    event->accept();
+}
+
+QLabel* auth_window::getLabelConnected()
+{
+    return ui->labelConnected;
+}
+
+
+
+void auth_window::on_lineEdit_returnPressed()
+{
+    int nKey = Qt::Key_Tab;
+    QKeyEvent* tab = new QKeyEvent(QEvent::KeyPress, nKey, Qt::NoModifier);
+    QApplication::sendEvent(this, tab);
+}
+
+
+void auth_window::on_lineEdit_2_returnPressed()
+{
+    emit login_button_clicked();
+}

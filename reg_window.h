@@ -16,19 +16,18 @@ public:
     ~reg_window();
     QString getName();
     QString getPass();
-    void setIsSuccessReg();
+    void setIsSuccessReg(bool);
     bool checkPass();
-
+    void setTextOnLabelConnected(QString text);
+    void setEnableRegisterButton(bool b);
 signals:
     void register_button_clicked2();
 
+
 private slots:
     void on_nameLineEdit_textEdited(const QString &arg1);
-
     void on_passwordLineEdit_textEdited(const QString &arg1);
-
     void on_confirmLineEdit_textEdited(const QString &arg1);
-
     void on_registerPushButton_clicked();
 
 private:

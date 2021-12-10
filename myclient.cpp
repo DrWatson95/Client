@@ -1,34 +1,38 @@
 #include "myclient.h"
 #include "ui_myclient.h"
 
+
 MyClient::MyClient(const QString& strHost,
                    int nPort,
                    QWidget* pwgt /*=О*/):
-                   QWidget(pwgt)
-                 , m_nNextBlockSize(0)
+                   QWidget(pwgt),
+                   m_nNextBlockSize(0),
+                   hostAddress(strHost),
+                   hostPort(nPort)
 {
-    connect(&ui_Auth, SIGNAL(login_button_clicked()),                                   //соединение сигнала кнопки авторизации экземпляра окна авторизации
-            this, SLOT(sendAuthInfo()));                                               //со слотом-обработчиком авторизации
-    connect(&ui_Auth,SIGNAL(destroyed()),                                               //соединение сигнала уничтожения экземпляра окна авторизации
-            this, SLOT(show()));                                                        //с методом отображения главного окна
-    connect(&ui_Auth,SIGNAL(register_button_clicked()),                                 //соединение сигнала кнопки регистрации экземпляра окна авторизации
-            this,SLOT(registerWindowShow()));                                           //со слотом вызывающим окно регистрации
-    connect(&ui_Reg,SIGNAL(register_button_clicked2()),                                 //соединение кнопки регистрации экземпляра окна авторизации
-            this,SLOT(sendRegInfo()));                                                 //со слотом-обработчиком регистраци
-    connect(&ui_Reg,SIGNAL(destroyed()),
-            &ui_Auth, SLOT(show()));
-    setIpAddress();
+    connect(&ui_Auth, &auth_window::sgnClose, this, &MyClient::slotForCloseSignal);
+    timer = new QTimer();
+    timer->start(100);
     m_pTcpSocket = new QTcpSocket(this);
-    m_pTcpSocket->connectToHost(strHost, nPort);
+    m_pTcpSocket->connectToHost(hostAddress, hostPort);
+    connect(timer, &QTimer::timeout, this, &MyClient::onTimeout);
+    connect(&ui_Auth, SIGNAL(login_button_clicked()),this, SLOT(sendAuthInfo()));
+    //connect(&ui_Auth,SIGNAL(destroyed()), this, SLOT(show()));
+    connect(&ui_Auth,SIGNAL(register_button_clicked()), this, SLOT(registerWindowShow()));
+    connect(&ui_Reg,SIGNAL(register_button_clicked2()),this,SLOT(sendRegInfo()));
+    connect(&ui_Reg,SIGNAL(returnPressed()), this, SLOT(sendUsefulMessage()));
+    //connect(&ui_Reg,SIGNAL(destroyed()),&ui_Auth, SLOT(show()));
+    setIpAddress();
     connect(m_pTcpSocket, SIGNAL(connected()), SLOT(slotConnected()));
     connect(m_pTcpSocket, SIGNAL(readyRead() ), SLOT(slotReadyRead()));
-    connect(m_pTcpSocket, SIGNAL(error(QAbstractSocket::SocketError)),this, SLOT (slotError (QAbstractSocket: :SocketError))) ;
+    connect(m_pTcpSocket, SIGNAL(error(QAbstractSocket::SocketError)),this, SLOT(slotError(QAbstractSocket::SocketError))) ;
     m_ptxtinfo = new QTextEdit;
     m_ptxtinput = new QLineEdit;
     m_ptxtinfo->setReadOnly(true);
     QPushButton* pcmd = new QPushButton("&Send");
     connect(pcmd, SIGNAL(clicked() ), SLOT(sendUsefulMessage() ));
     connect(m_ptxtinput, SIGNAL(returnPressed()), this, SLOT ( sendUsefulMessage () )) ;
+
     //Layout setup
     QVBoxLayout* pvbxLayout = new QVBoxLayout;
     pvbxLayout->addWidget(new QLabel("<H1>Client</H1>"));
@@ -50,53 +54,58 @@ void MyClient::slotReadyRead()
     quint8 id;
     in >> id;
     switch (id) {
-    case static_cast<quint8>(MessageID::Authorization):{
-        //in.device()->seek(1);
-        quint8 b;
-        in >> b;
-        if(b){
-            ui_Auth.close();
-            ui_Reg.close();
-            this->show();
-        }else{
-            ui_Auth.setText("NOT FOUND");
-        }
-        qDebug() << "0";
-        break;
-    }
-    case static_cast<quint8>(MessageID::Registration):{
-        //in.device()->seek(1);
-        quint8 b;
-        in >> b;
-        if(b){
-            ui_Reg.hide();
-            ui_Auth.show();
-        }else{
-            ui_Reg.setIsSuccessReg();
-        }
-        qDebug() << "1";
-        break;
-    }
-    case static_cast<quint8>(MessageID::UsefulExchange):{
-        QString text;
-        in >> text;
-        m_ptxtinfo->append(text);
-        qDebug() << "2";
-        break;
-    }
-    case static_cast<quint8>(MessageID::CheckConnected):{
-        quint8 b;
-        in >> b;
-        if(b){
-            qDebug() << "hereee";
-            ui_Auth.setText("CONNECTED");
-        }
-        //this->show();
-        qDebug() << "3";
-        break;
-    }
-    default:
+        case MessageID::Authorization:
+        {
+            quint8 isAuthorization;
+            in >> isAuthorization;
+            if(isAuthorization){
+                ui_Auth.close();
+                ui_Reg.close();
+                this->show();
+            }else{
+                ui_Auth.setTextOnlabelError("USER NOT FOUND");
+            }
+            qDebug() << "Authorization";
             break;
+        }
+        case MessageID::Registration:
+        {
+            quint8 isRegistration;
+            in >> isRegistration;
+            if(isRegistration){
+                ui_Reg.hide();
+                ui_Auth.show();
+                ui_Auth.setTextOnlabelError("");
+            }else{
+                ui_Reg.setIsSuccessReg(isRegistration);
+            }
+            qDebug() << "Registration";
+            break;
+        }
+        case MessageID::UsefulExchange:
+        {
+            QString text;
+            in >> text;
+            m_ptxtinfo->append(text);
+            qDebug() << "UsefulExchange";
+            break;
+        }
+        case MessageID::CheckConnected:
+        {
+            quint8 isConnected;
+            in >> isConnected;
+//            if(isConnected)
+//                ui_Auth.setText("CONNECTED");
+//            else
+//                ui_Auth.setText("NO CONNECTION");
+            qDebug() << "CheckConnected";
+            break;
+        }
+        default:
+        {
+            qDebug() << "default: Unknown Message";
+            break;
+        }
     }
 }
 //    QDataStream in(m_pTcpSocket);
@@ -159,12 +168,12 @@ void MyClient::sendRegInfo()
         m_userpass = ui_Reg.getPass();
         QByteArray arrBlock;
         QDataStream out(&arrBlock, QIODevice::WriteOnly);
-        out.setVersion(QDataStream::Qt_5_2);
         out << m_username << m_userpass;
         SendToServer(&arrBlock,MessageID::Registration);
+
     }
     else{
-        qDebug() << "Confirm password coorectly";
+        qDebug() << "Enter coorectly password";
     }
 }
 
@@ -172,12 +181,47 @@ void MyClient::sendUsefulMessage()
 {
     QByteArray arrBlock;
     QDataStream out(&arrBlock, QIODevice::WriteOnly);
-    QString allMessage = m_username + QString(": ") + m_ptxtinput->text();
+    QString allMessage = m_username + QString(": ") + m_ptxtinput->text().toUtf8();
     if(m_ptxtinput->text() != ""){
        out << allMessage;
        m_ptxtinput->clear();
        SendToServer(&arrBlock,MessageID::UsefulExchange);
     }
+}
+
+void MyClient::onTimeout()
+{
+    if(m_pTcpSocket->state() != QAbstractSocket::SocketState::ConnectedState){
+        if(ui_Auth.isVisible()){
+            ui_Auth.setEnableRegisterButton(false);
+            ui_Auth.setEnableLoginButton(false);
+            ui_Auth.setTextOnLabelConnected("NO CONNECTION");
+            ui_Auth.getLabelConnected()->setStyleSheet("QLabel { background-color : red; color : black; border-radius: 13px;}");
+        }else if(ui_Reg.isVisible()){
+            ui_Reg.setTextOnLabelConnected("NO CONNECTION");
+            ui_Reg.setEnableRegisterButton(false);
+        }else if(this->isVisible()){
+            this->hide();
+            ui_Auth.show();
+            ui_Auth.setTextOnLabelConnected("NO CONNECTION");
+        }
+        m_pTcpSocket->connectToHost(hostAddress, hostPort);
+    }else if(m_pTcpSocket->state() == QAbstractSocket::SocketState::ConnectedState){
+        if(ui_Auth.isVisible()){
+            ui_Auth.setEnableRegisterButton(true);
+            ui_Auth.setEnableLoginButton(true);
+            ui_Auth.setTextOnLabelConnected("CONNECTED");
+            ui_Auth.getLabelConnected()->setStyleSheet("QLabel { background-color : green; color : black; border-radius: 13px;}");
+        }else if(ui_Reg.isVisible()){
+            ui_Reg.setTextOnLabelConnected("CONNECTED");
+            ui_Reg.setEnableRegisterButton(true);
+        }
+    }
+}
+
+void MyClient::slotForCloseSignal(bool val1)
+{
+    //this->show();
 }
 
 void MyClient::registerWindowShow()
@@ -188,6 +232,5 @@ void MyClient::registerWindowShow()
 
 void MyClient::display()                                                              //реализация пользотвальского метода отображения главного окна
 {
-
     ui_Auth.show();                                                                     //отобразить окно авторизации(НЕ главное окно)
 }

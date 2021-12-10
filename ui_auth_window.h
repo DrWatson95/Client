@@ -27,41 +27,56 @@ public:
     QGridLayout *gridLayout;
     QPushButton *loginPushButton;
     QLabel *label_Name;
-    QLineEdit *lineEdit;
-    QLabel *label_Password;
-    QLineEdit *lineEdit_2;
-    QPushButton *registerPushButton_2;
-    QLabel *labelWelcome;
     QLabel *labelError;
+    QLineEdit *lineEdit_2;
+    QLabel *label_Password;
+    QLineEdit *lineEdit;
+    QLabel *labelWelcome;
+    QPushButton *registerPushButton_2;
+    QLabel *labelConnected;
 
     void setupUi(QWidget *auth_window)
     {
         if (auth_window->objectName().isEmpty())
             auth_window->setObjectName(QString::fromUtf8("auth_window"));
-        auth_window->resize(455, 212);
+        auth_window->resize(479, 237);
+        auth_window->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"font: 75 italic 11pt \"Comic Sans MS\";"));
         horizontalLayout = new QHBoxLayout(auth_window);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         loginPushButton = new QPushButton(auth_window);
         loginPushButton->setObjectName(QString::fromUtf8("loginPushButton"));
+        loginPushButton->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(loginPushButton, 4, 1, 1, 1);
 
         label_Name = new QLabel(auth_window);
         label_Name->setObjectName(QString::fromUtf8("label_Name"));
         QFont font;
-        font.setPointSize(12);
+        font.setFamilies({QString::fromUtf8("Comic Sans MS")});
+        font.setPointSize(11);
+        font.setBold(false);
+        font.setItalic(true);
         label_Name->setFont(font);
         label_Name->setMidLineWidth(0);
         label_Name->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         gridLayout->addWidget(label_Name, 2, 0, 1, 1);
 
-        lineEdit = new QLineEdit(auth_window);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        labelError = new QLabel(auth_window);
+        labelError->setObjectName(QString::fromUtf8("labelError"));
+        labelError->setFocusPolicy(Qt::NoFocus);
+        labelError->setStyleSheet(QString::fromUtf8("border-radius: 5px;"));
+        labelError->setFrameShape(QFrame::NoFrame);
 
-        gridLayout->addWidget(lineEdit, 2, 1, 1, 1);
+        gridLayout->addWidget(labelError, 4, 0, 1, 1);
+
+        lineEdit_2 = new QLineEdit(auth_window);
+        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+
+        gridLayout->addWidget(lineEdit_2, 3, 1, 1, 1);
 
         label_Password = new QLabel(auth_window);
         label_Password->setObjectName(QString::fromUtf8("label_Password"));
@@ -70,15 +85,10 @@ public:
 
         gridLayout->addWidget(label_Password, 3, 0, 1, 1);
 
-        lineEdit_2 = new QLineEdit(auth_window);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        lineEdit = new QLineEdit(auth_window);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
 
-        gridLayout->addWidget(lineEdit_2, 3, 1, 1, 1);
-
-        registerPushButton_2 = new QPushButton(auth_window);
-        registerPushButton_2->setObjectName(QString::fromUtf8("registerPushButton_2"));
-
-        gridLayout->addWidget(registerPushButton_2, 5, 1, 1, 1);
+        gridLayout->addWidget(lineEdit, 2, 1, 1, 1);
 
         labelWelcome = new QLabel(auth_window);
         labelWelcome->setObjectName(QString::fromUtf8("labelWelcome"));
@@ -87,10 +97,16 @@ public:
 
         gridLayout->addWidget(labelWelcome, 1, 1, 1, 1);
 
-        labelError = new QLabel(auth_window);
-        labelError->setObjectName(QString::fromUtf8("labelError"));
+        registerPushButton_2 = new QPushButton(auth_window);
+        registerPushButton_2->setObjectName(QString::fromUtf8("registerPushButton_2"));
 
-        gridLayout->addWidget(labelError, 4, 0, 1, 1);
+        gridLayout->addWidget(registerPushButton_2, 5, 1, 1, 1);
+
+        labelConnected = new QLabel(auth_window);
+        labelConnected->setObjectName(QString::fromUtf8("labelConnected"));
+        labelConnected->setStyleSheet(QString::fromUtf8("border-radius: 111px;"));
+
+        gridLayout->addWidget(labelConnected, 5, 0, 1, 1);
 
 
         horizontalLayout->addLayout(gridLayout);
@@ -109,10 +125,11 @@ public:
         auth_window->setWindowTitle(QCoreApplication::translate("auth_window", "Form", nullptr));
         loginPushButton->setText(QCoreApplication::translate("auth_window", "Log In", nullptr));
         label_Name->setText(QCoreApplication::translate("auth_window", "name", nullptr));
-        label_Password->setText(QCoreApplication::translate("auth_window", "password", nullptr));
-        registerPushButton_2->setText(QCoreApplication::translate("auth_window", "Register", nullptr));
-        labelWelcome->setText(QCoreApplication::translate("auth_window", "authentificate yourself", nullptr));
         labelError->setText(QString());
+        label_Password->setText(QCoreApplication::translate("auth_window", "password", nullptr));
+        labelWelcome->setText(QCoreApplication::translate("auth_window", "Authentificate yourself", nullptr));
+        registerPushButton_2->setText(QCoreApplication::translate("auth_window", "Register", nullptr));
+        labelConnected->setText(QString());
     } // retranslateUi
 
 };

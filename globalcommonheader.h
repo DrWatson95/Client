@@ -1,4 +1,4 @@
-enum class MessageID
+enum MessageID
 {
     Authorization,
     Registration,

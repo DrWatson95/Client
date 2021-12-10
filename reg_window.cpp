@@ -44,9 +44,16 @@ QString reg_window::getPass()
     return m_userPass;
 }
 
-void reg_window::setIsSuccessReg()
+void reg_window::setIsSuccessReg(bool b)
 {
-    ui->isSuccessReg->setText("FAILURE");
+    if(!b){
+        ui->isSuccessReg->setText("FAILURE");
+    }
+}
+
+void reg_window::setTextOnLabelConnected(QString text)
+{
+    ui->labelConnected->setText(text);
 }
 
 bool reg_window::checkPass()
@@ -54,3 +61,7 @@ bool reg_window::checkPass()
     return (m_confirmation == m_userPass);
 }
 
+void reg_window::setEnableRegisterButton(bool b)
+{
+    ui->registerPushButton->setEnabled(b);
+}

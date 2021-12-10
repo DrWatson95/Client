@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QTextEdit>
+#include <QTimer>
 #include <QTcpSocket>
 #include <QTcpServer>
 #include <QMessageBox>
@@ -19,7 +20,6 @@
 class MyClient : public QWidget
 {
     Q_OBJECT
-
 private:
     QTcpSocket* m_pTcpSocket;
     QTextEdit* m_ptxtinfo;
@@ -30,6 +30,9 @@ private:
     reg_window ui_Reg;
     QString m_username;
     QString m_userpass;
+    QTimer* timer;
+    QString hostAddress;
+    int hostPort;
     void SendToServer(QByteArray *data, MessageID id);
 public:
     MyClient(const QString& strHost, int nPort, QWidget* pwgt = 0);
@@ -43,6 +46,8 @@ private slots:
     void sendRegInfo();
     void registerWindowShow();
     void sendUsefulMessage();
+    void onTimeout();
+    void slotForCloseSignal(bool);
     //void registerUser();
 };
 
